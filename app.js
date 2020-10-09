@@ -70,7 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
             doodlerBottomSpace -= 5
             doodler.style.bottom = doodlerBottomSpace + 'px'
         }, 30)
+        if (doodlerBottomSpace <= 0) {
+            gameOver()
+        }
     }
+
+    function gameOver() {
+        console.log('Game Over')
+        isGameOver = true
+        clearInterval(upTimerId)
+        clearInterval(downTimerId)
+    }
+
 
     function start() {
         if (!isGameOver) {
@@ -83,4 +94,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Attach button to start game
     start()
+
 })
